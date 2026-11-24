@@ -1,148 +1,202 @@
-<svg fill="none" viewBox="0 0 1200 360" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
   <defs>
-    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0f1d" />
-      <stop offset="40%" stop-color="#0b172a" />
-      <stop offset="80%" stop-color="#111827" />
-      <stop offset="100%" stop-color="#050814" />
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#030712" />
     </linearGradient>
 
-    <linearGradient id="primary-glow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="50%" stop-color="#818cf8" />
-      <stop offset="100%" stop-color="#c084fc" />
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="35%" stop-color="#f97316" />
+      <stop offset="70%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#3b82f6" />
     </linearGradient>
 
-    <linearGradient id="accent-cyan" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8" />
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
+    <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0" />
     </linearGradient>
 
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8" stroke-opacity="0.6"/>
-      <circle cx="40" cy="40" r="1" fill="#38bdf8" fill-opacity="0.3" />
-    </pattern>
+    <linearGradient id="glowBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+    </linearGradient>
 
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="8" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
 
-    <style>
-      .title-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 800;
-        font-size: 40px;
-        fill: #f8fafc;
-        letter-spacing: -0.5px;
-      }
-      .subtitle-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 500;
-        font-size: 17px;
-        fill: #94a3b8;
-        letter-spacing: 0.2px;
-      }
-      .pill-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 600;
-        font-size: 13px;
-        fill: #38bdf8;
-      }
-      .pulse-circle {
-        animation: pulse 4s ease-in-out infinite alternate;
-      }
-      .float-particle {
-        animation: float 6s ease-in-out infinite alternate;
-      }
-      .wave-path {
-        animation: waveShift 10s linear infinite alternate;
-      }
-      @keyframes pulse {
-        0% { transform: scale(1); opacity: 0.3; }
-        100% { transform: scale(1.15); opacity: 0.6; }
-      }
-      @keyframes float {
-        0% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-12px) rotate(3deg); }
-        100% { transform: translateY(0px) rotate(0deg); }
-      }
-      @keyframes waveShift {
-        0% { stroke-dashoffset: 0; }
-        100% { stroke-dashoffset: 120; }
-      }
-    </style>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
   </defs>
 
-  <!-- Background Base -->
-  <rect width="1200" height="360" rx="16" fill="url(#bg-grad)" />
-  <rect width="1200" height="360" rx="16" fill="url(#grid)" />
+  <style>
+    /* Keyframe Animations */
+    @keyframes floatPill1 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    @keyframes floatPill2 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(8px) rotate(-1deg); }
+    }
+    @keyframes pulseAura {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.08); }
+    }
+    @keyframes flowLine {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes waveGrid {
+      0%, 100% { opacity: 0.12; }
+      50% { opacity: 0.24; }
+    }
 
-  <!-- Dynamic / Animated Background Graphics (Low z-index, behind text) -->
-  <g class="pulse-circle" style="transform-origin: 950px 180px;">
-    <circle cx="950" cy="180" r="130" fill="url(#accent-cyan)" filter="url(#glow)" />
-    <circle cx="950" cy="180" r="85" fill="none" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="6 6" />
-    <circle cx="950" cy="180" r="45" fill="none" stroke="#38bdf8" stroke-width="2" />
+    .pill-1 { animation: floatPill1 6s ease-in-out infinite; }
+    .pill-2 { animation: floatPill2 7s ease-in-out infinite; }
+    .aura-red { animation: pulseAura 8s ease-in-out infinite; transform-origin: 200px 100px; }
+    .aura-blue { animation: pulseAura 9s ease-in-out infinite; transform-origin: 1050px 300px; }
+    .grid-lines { animation: waveGrid 5s ease-in-out infinite; }
+    .pulse-stroke { stroke-dasharray: 8 6; animation: flowLine 15s linear infinite; }
+
+    /* Static Typography & Labels */
+    .title-main {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 900;
+      font-size: 46px;
+      fill: #ffffff;
+      letter-spacing: -1px;
+    }
+    .title-accent {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 900;
+      font-size: 46px;
+      fill: url(#accentGrad);
+      letter-spacing: -1px;
+    }
+    .subtitle-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 19px;
+      fill: #9ca3af;
+      letter-spacing: 0.2px;
+    }
+    .badge-label {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      fill: #f87171;
+    }
+    .chip-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 13.5px;
+      fill: #e5e7eb;
+    }
+  </style>
+
+  <!-- Background Base Canvas -->
+  <rect width="1200" height="420" rx="16" fill="url(#bgGrad)" />
+  <rect width="1200" height="420" rx="16" fill="none" stroke="#1f2937" stroke-width="2" />
+
+  <!-- Animated Ambient Aura Glows (Backdrop) -->
+  <circle cx="200" cy="100" r="180" fill="url(#glowRed)" class="aura-red" filter="url(#subtleGlow)" />
+  <circle cx="1050" cy="300" r="220" fill="url(#glowBlue)" class="aura-blue" filter="url(#subtleGlow)" />
+
+  <!-- Vector Grid & Flow Lines (Backdrop) -->
+  <g class="grid-lines" stroke="#374151" stroke-width="0.8">
+    <line x1="100" y1="0" x2="100" y2="420" />
+    <line x1="300" y1="0" x2="300" y2="420" />
+    <line x1="500" y1="0" x2="500" y2="420" />
+    <line x1="700" y1="0" x2="700" y2="420" />
+    <line x1="900" y1="0" x2="900" y2="420" />
+    <line x1="1100" y1="0" x2="1100" y2="420" />
+    <line x1="0" y1="80" x2="1200" y2="80" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="280" x2="1200" y2="280" />
+    <line x1="0" y1="360" x2="1200" y2="360" />
   </g>
 
-  <!-- Physics trajectory dynamic spline in background -->
-  <path class="wave-path" d="M 50 320 Q 300 120, 600 240 T 1150 100" fill="none" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.35" stroke-dasharray="8 8" />
-  <path class="wave-path" d="M 50 340 Q 350 200, 700 290 T 1180 180" fill="none" stroke="#818cf8" stroke-width="1.5" stroke-opacity="0.25" stroke-dasharray="4 6" />
+  <!-- Background Animated Curves / Data Flow -->
+  <path d="M 50 340 C 250 310, 400 390, 650 320 C 850 260, 1000 370, 1160 300" 
+        fill="none" stroke="#ef4444" stroke-opacity="0.3" stroke-width="2.5" class="pulse-stroke" />
+  <path d="M 60 370 C 300 330, 480 370, 720 300 C 920 240, 1060 330, 1150 270" 
+        fill="none" stroke="#6366f1" stroke-opacity="0.25" stroke-width="2" class="pulse-stroke" />
 
-  <!-- Animated Robot / Digital Twin Nodes (Positioned safely on right) -->
-  <g class="float-particle">
-    <!-- Robotic Joint Schematic Node 1 -->
-    <rect x="880" y="70" width="130" height="42" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1.2" />
-    <circle cx="902" cy="91" r="5" fill="#38bdf8" />
-    <text x="918" y="96" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Rigid Body</text>
-
-    <!-- Robotic Joint Schematic Node 2 -->
-    <rect x="990" y="145" width="145" height="42" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#818cf8" stroke-width="1.2" />
-    <circle cx="1012" cy="166" r="5" fill="#818cf8" />
-    <text x="1028" y="171" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Embodied AI</text>
-
-    <!-- Robotic Joint Schematic Node 3 -->
-    <rect x="860" y="225" width="150" height="42" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#c084fc" stroke-width="1.2" />
-    <circle cx="882" cy="246" r="5" fill="#c084fc" />
-    <text x="898" y="251" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Digital Twin (GPU)</text>
-
-    <!-- Connection lines between schematic nodes -->
-    <line x1="945" y1="112" x2="1010" y2="145" stroke="#475569" stroke-width="1.2" stroke-dasharray="3 3" />
-    <line x1="1020" y1="187" x2="960" y2="225" stroke="#475569" stroke-width="1.2" stroke-dasharray="3 3" />
+  <!-- Dynamic Floating Decorative Tech Badges (Sides & Bottom, strictly behind/below text focus) -->
+  <g class="pill-1" transform="translate(930, 60)" filter="url(#softShadow)">
+    <rect width="180" height="42" rx="21" fill="url(#cardGrad)" stroke="#374151" stroke-width="1.2" />
+    <circle cx="24" cy="21" r="7" fill="#ef4444" />
+    <text x="44" y="26" class="chip-text">⚡ Typst &amp; WeasyPrint</text>
   </g>
 
-  <!-- Foreground Content: Header Tags, Title, Subtitle, Capability Badges -->
-  <g transform="translate(60, 55)">
-    <!-- Category Pill Badge -->
-    <rect x="0" y="0" width="220" height="30" rx="15" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" />
-    <circle cx="16" cy="15" r="4" fill="#38bdf8" />
-    <text x="28" y="20" class="pill-text">🚀 ROBOTICS &amp; SIMULATION</text>
+  <g class="pill-2" transform="translate(960, 120)" filter="url(#softShadow)">
+    <rect width="160" height="42" rx="21" fill="url(#cardGrad)" stroke="#374151" stroke-width="1.2" />
+    <circle cx="24" cy="21" r="7" fill="#3b82f6" />
+    <text x="44" y="26" class="chip-text">⚛️ React-PDF</text>
+  </g>
 
-    <!-- Main Title (Clear Foreground, guaranteed visible) -->
-    <text x="0" y="75" class="title-text">Awesome Physics Simulation</text>
-    <text x="0" y="125" class="title-text" fill="url(#primary-glow)">&amp; Robotics Simulation</text>
+  <g class="pill-1" transform="translate(890, 180)" filter="url(#softShadow)">
+    <rect width="210" height="42" rx="21" fill="url(#cardGrad)" stroke="#374151" stroke-width="1.2" />
+    <circle cx="24" cy="21" r="7" fill="#10b981" />
+    <text x="44" y="26" class="chip-text">🛡️ Stirling &amp; Bento Wasm</text>
+  </g>
 
-    <!-- Subtitle (Clear Foreground) -->
-    <text x="0" y="172" class="subtitle-text">Curated ecosystem of SaaS platforms &amp; open-source dynamics solvers</text>
-    <text x="0" y="198" class="subtitle-text" fill="#64748b">Empowering Embodied AI, Differentiable Physics, Sim-to-Real RL &amp; Digital Twins</text>
+  <!-- Central Foreground Content (Title, Subtitle, Badges) -->
+  <g transform="translate(80, 0)">
+    <!-- Top Category Pill -->
+    <g transform="translate(0, 68)">
+      <rect width="260" height="32" rx="16" fill="#1e1b4b" stroke="#4f46e5" stroke-width="1.2" />
+      <text x="18" y="21" class="badge-label">✨ OPEN-SOURCE &amp; SAAS ECOSYSTEM</text>
+    </g>
 
-    <!-- Feature Pills in Foreground -->
-    <g transform="translate(0, 226)">
-      <!-- Pill 1 -->
-      <rect x="0" y="0" width="130" height="32" rx="6" fill="#1e293b" fill-opacity="0.9" stroke="#334155" stroke-width="1" />
-      <text x="14" y="21" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" fill="#38bdf8">⚡ GPU Multibody</text>
+    <!-- Main Title Lines -->
+    <g transform="translate(0, 145)">
+      <text x="0" y="0" class="title-main">Awesome PDF Editing &amp;</text>
+      <text x="0" y="54" class="title-accent">Generative Document Design</text>
+    </g>
 
-      <!-- Pill 2 -->
-      <rect x="142" y="0" width="145" height="32" rx="6" fill="#1e293b" fill-opacity="0.9" stroke="#334155" stroke-width="1" />
-      <text x="156" y="21" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" fill="#818cf8">🤖 Sim-to-Real RL</text>
+    <!-- Subtitle Line -->
+    <text x="0" y="240" class="subtitle-text">
+      Declarative Layouts, Typesetting Compilers, React-to-PDF &amp; Sovereign Web PDF Studios
+    </text>
 
-      <!-- Pill 3 -->
-      <rect x="299" y="0" width="150" height="32" rx="6" fill="#1e293b" fill-opacity="0.9" stroke="#334155" stroke-width="1" />
-      <text x="313" y="21" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" fill="#c084fc">🌐 ROS 2 &amp; OpenUSD</text>
-
-      <!-- Pill 4 -->
-      <rect x="461" y="0" width="135" height="32" rx="6" fill="#1e293b" fill-opacity="0.9" stroke="#334155" stroke-width="1" />
-      <text x="475" y="21" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" fill="#34d399">🔬 FEM &amp; Fluids</text>
+    <!-- Feature Tags Row -->
+    <g transform="translate(0, 285)">
+      <!-- Tag 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="130" height="38" rx="8" fill="#1f2937" stroke="#374151" stroke-width="1" />
+        <text x="16" y="24" class="chip-text">📑 PDF Editors</text>
+      </g>
+      <!-- Tag 2 -->
+      <g transform="translate(142, 0)">
+        <rect width="180" height="38" rx="8" fill="#1f2937" stroke="#374151" stroke-width="1" />
+        <text x="16" y="24" class="chip-text">🦀 Typst &amp; Compilers</text>
+      </g>
+      <!-- Tag 3 -->
+      <g transform="translate(334, 0)">
+        <rect width="165" height="38" rx="8" fill="#1f2937" stroke="#374151" stroke-width="1" />
+        <text x="16" y="24" class="chip-text">🌐 HTML/CSS-to-PDF</text>
+      </g>
+      <!-- Tag 4 -->
+      <g transform="translate(511, 0)">
+        <rect width="155" height="38" rx="8" fill="#1f2937" stroke="#374151" stroke-width="1" />
+        <text x="16" y="24" class="chip-text">🔒 Privacy &amp; Wasm</text>
+      </g>
     </g>
   </g>
 </svg>
