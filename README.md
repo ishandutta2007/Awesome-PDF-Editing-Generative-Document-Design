@@ -75,7 +75,7 @@ The table below outlines leading commercial PDF editing and generative document 
 Curated list of open-source projects, typesetting tools, WebAssembly viewers, and PDF automation frameworks.  
 **Sorted by GitHub stargazers count (descending):**
 
-| Project | Stars | Language / Ecosystem | Category | Description |
+| Project | GitHub_Stars | Language / Ecosystem | Category | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | **[Playwright](https://github.com/microsoft/playwright)** | [![Stars](https://img.shields.io/github/stars/microsoft/playwright?style=social&color=white)](https://github.com/microsoft/playwright/stargazers) | TypeScript / Node.js / Python | Browser Automation / PDF Engine | Modern end-to-end browser automation framework supporting pixel-accurate headless Chromium PDF printing, CSS Paged Media, and dynamic JavaScript charting. |
 | **[Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF)** | [![Stars](https://img.shields.io/github/stars/Stirling-Tools/Stirling-PDF?style=social&color=white)](https://github.com/Stirling-Tools/Stirling-PDF/stargazers) | Java / Docker / Web UI | Self-Hosted PDF Suite | Robust, completely self-hosted web PDF toolbox for splitting, merging, converting, reorganizing, annotating, redacting, signing, and OCR-processing PDF files. |
@@ -126,7 +126,7 @@ We welcome contributions from developers, designers, and open-source enthusiasts
 2. **Add or update an entry** in `README.md` maintaining standard table and alphabetized/sorted conventions.
 3. **Follow the formatting**:
    - Provide exact pricing tiers and verifiable free tier limits.
-   - For open-source additions, include the official GitHub repo link and star badge (`style=social&color=white`) linking to its stargazers page.
+   - For open-source additions, include the official GitHub repo link and Stars_Badge (`style=social&color=white`) linking to its stargazers page.
 4. **Submit a Pull Request** with a descriptive title and summary of changes.
 
 ---
