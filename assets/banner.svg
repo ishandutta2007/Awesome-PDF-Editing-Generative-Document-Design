@@ -1,202 +1,201 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="380" style="background:#0b0f19;border-radius:14px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
   <defs>
-    <!-- Background Gradients -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b0f19" />
       <stop offset="50%" stop-color="#111827" />
       <stop offset="100%" stop-color="#030712" />
     </linearGradient>
 
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Vibrant Title Accent Gradient -->
+    <linearGradient id="primary-glow" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ef4444" />
       <stop offset="35%" stop-color="#f97316" />
-      <stop offset="70%" stop-color="#8b5cf6" />
+      <stop offset="70%" stop-color="#a855f7" />
       <stop offset="100%" stop-color="#3b82f6" />
     </linearGradient>
 
-    <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0" />
-    </linearGradient>
-
-    <linearGradient id="glowBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25" />
-      <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
-    </linearGradient>
-
     <!-- Card Background Gradient -->
-    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1f2937" stop-opacity="0.75" />
-      <stop offset="100%" stop-color="#111827" stop-opacity="0.85" />
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.95" />
     </linearGradient>
 
-    <!-- Glow Filter -->
-    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
+    <!-- Subtle Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
 
-    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+    <!-- Card Shadow -->
+    <filter id="card-shadow" x="-10%" y="-10%" width="120%" height="120%">
       <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
     </filter>
+
+    <!-- Keyframe Animations for GitHub SVG Rendering -->
+    <style>
+      .pulse-dot {
+        animation: pulseAnimation 2s infinite ease-in-out;
+      }
+      .pulse-ring {
+        animation: ringAnimation 2.2s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+        transform-origin: 44px 44px;
+      }
+      @keyframes pulseAnimation {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.15); opacity: 0.8; }
+      }
+      @keyframes ringAnimation {
+        0% { transform: scale(0.8); opacity: 0.8; }
+        100% { transform: scale(2.2); opacity: 0; }
+      }
+      .flow-pulse {
+        stroke-dasharray: 8, 8;
+        animation: dashFlow 25s linear infinite;
+      }
+      @keyframes dashFlow {
+        to { stroke-dashoffset: -1000; }
+      }
+      .card-float {
+        animation: floatCard 6s ease-in-out infinite alternate;
+      }
+      @keyframes floatCard {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-8px); }
+      }
+      .bar-pulse {
+        animation: barPulse 3s ease-in-out infinite alternate;
+      }
+      @keyframes barPulse {
+        0% { opacity: 0.5; }
+        100% { opacity: 1; }
+      }
+    </style>
   </defs>
 
-  <style>
-    /* Keyframe Animations */
-    @keyframes floatPill1 {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(1deg); }
-    }
-    @keyframes floatPill2 {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(8px) rotate(-1deg); }
-    }
-    @keyframes pulseAura {
-      0%, 100% { opacity: 0.25; transform: scale(1); }
-      50% { opacity: 0.45; transform: scale(1.08); }
-    }
-    @keyframes flowLine {
-      0% { stroke-dashoffset: 100; }
-      100% { stroke-dashoffset: 0; }
-    }
-    @keyframes waveGrid {
-      0%, 100% { opacity: 0.12; }
-      50% { opacity: 0.24; }
-    }
-
-    .pill-1 { animation: floatPill1 6s ease-in-out infinite; }
-    .pill-2 { animation: floatPill2 7s ease-in-out infinite; }
-    .aura-red { animation: pulseAura 8s ease-in-out infinite; transform-origin: 200px 100px; }
-    .aura-blue { animation: pulseAura 9s ease-in-out infinite; transform-origin: 1050px 300px; }
-    .grid-lines { animation: waveGrid 5s ease-in-out infinite; }
-    .pulse-stroke { stroke-dasharray: 8 6; animation: flowLine 15s linear infinite; }
-
-    /* Static Typography & Labels */
-    .title-main {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 900;
-      font-size: 46px;
-      fill: #ffffff;
-      letter-spacing: -1px;
-    }
-    .title-accent {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 900;
-      font-size: 46px;
-      fill: url(#accentGrad);
-      letter-spacing: -1px;
-    }
-    .subtitle-text {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      font-size: 19px;
-      fill: #9ca3af;
-      letter-spacing: 0.2px;
-    }
-    .badge-label {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      fill: #f87171;
-    }
-    .chip-text {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 600;
-      font-size: 13.5px;
-      fill: #e5e7eb;
-    }
-  </style>
-
   <!-- Background Base Canvas -->
-  <rect width="1200" height="420" rx="16" fill="url(#bgGrad)" />
-  <rect width="1200" height="420" rx="16" fill="none" stroke="#1f2937" stroke-width="2" />
+  <rect width="1200" height="380" fill="url(#bg-grad)"/>
 
-  <!-- Animated Ambient Aura Glows (Backdrop) -->
-  <circle cx="200" cy="100" r="180" fill="url(#glowRed)" class="aura-red" filter="url(#subtleGlow)" />
-  <circle cx="1050" cy="300" r="220" fill="url(#glowBlue)" class="aura-blue" filter="url(#subtleGlow)" />
-
-  <!-- Vector Grid & Flow Lines (Backdrop) -->
-  <g class="grid-lines" stroke="#374151" stroke-width="0.8">
-    <line x1="100" y1="0" x2="100" y2="420" />
-    <line x1="300" y1="0" x2="300" y2="420" />
-    <line x1="500" y1="0" x2="500" y2="420" />
-    <line x1="700" y1="0" x2="700" y2="420" />
-    <line x1="900" y1="0" x2="900" y2="420" />
-    <line x1="1100" y1="0" x2="1100" y2="420" />
-    <line x1="0" y1="80" x2="1200" y2="80" />
+  <!-- High-tech Subtle Grid Lines -->
+  <g opacity="0.12" stroke="#38bdf8" stroke-width="1">
+    <line x1="0" y1="60" x2="1200" y2="60" />
+    <line x1="0" y1="120" x2="1200" y2="120" />
     <line x1="0" y1="180" x2="1200" y2="180" />
-    <line x1="0" y1="280" x2="1200" y2="280" />
-    <line x1="0" y1="360" x2="1200" y2="360" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="100" y1="0" x2="100" y2="380" />
+    <line x1="250" y1="0" x2="250" y2="380" />
+    <line x1="400" y1="0" x2="400" y2="380" />
+    <line x1="550" y1="0" x2="550" y2="380" />
+    <line x1="700" y1="0" x2="700" y2="380" />
+    <line x1="850" y1="0" x2="850" y2="380" />
+    <line x1="1000" y1="0" x2="1000" y2="380" />
+    <line x1="1150" y1="0" x2="1150" y2="380" />
   </g>
 
-  <!-- Background Animated Curves / Data Flow -->
-  <path d="M 50 340 C 250 310, 400 390, 650 320 C 850 260, 1000 370, 1160 300" 
-        fill="none" stroke="#ef4444" stroke-opacity="0.3" stroke-width="2.5" class="pulse-stroke" />
-  <path d="M 60 370 C 300 330, 480 370, 720 300 C 920 240, 1060 330, 1150 270" 
-        fill="none" stroke="#6366f1" stroke-opacity="0.25" stroke-width="2" class="pulse-stroke" />
+  <!-- Ambient Glow Orbs -->
+  <circle cx="160" cy="90" r="150" fill="#ef4444" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="1060" cy="280" r="180" fill="#3b82f6" opacity="0.09" filter="url(#glow)"/>
+  <circle cx="620" cy="190" r="200" fill="#8b5cf6" opacity="0.05" filter="url(#glow)"/>
 
-  <!-- Dynamic Floating Decorative Tech Badges (Sides & Bottom, strictly behind/below text focus) -->
-  <g class="pill-1" transform="translate(930, 60)" filter="url(#softShadow)">
-    <rect width="180" height="42" rx="21" fill="url(#cardGrad)" stroke="#374151" stroke-width="1.2" />
-    <circle cx="24" cy="21" r="7" fill="#ef4444" />
-    <text x="44" y="26" class="chip-text">⚡ Typst &amp; WeasyPrint</text>
-  </g>
+  <!-- Dynamic Animated Curves / Data Flow Line -->
+  <path class="flow-pulse" d="M -50 310 Q 180 260 360 320 T 720 280 T 1080 330 T 1250 290" 
+        fill="none" stroke="#ef4444" stroke-width="2.2" opacity="0.4" />
+  <path class="flow-pulse" d="M -50 335 Q 200 290 420 340 T 780 300 T 1120 340 T 1250 310" 
+        fill="none" stroke="#3b82f6" stroke-width="1.8" opacity="0.3" />
 
-  <g class="pill-2" transform="translate(960, 120)" filter="url(#softShadow)">
-    <rect width="160" height="42" rx="21" fill="url(#cardGrad)" stroke="#374151" stroke-width="1.2" />
-    <circle cx="24" cy="21" r="7" fill="#3b82f6" />
-    <text x="44" y="26" class="chip-text">⚛️ React-PDF</text>
-  </g>
+  <!-- Right Floating Dynamic Document Engine Card -->
+  <g class="card-float" transform="translate(730, 48)" filter="url(#card-shadow)">
+    <!-- Main Card Body -->
+    <rect width="410" height="284" rx="14" fill="url(#card-grad)" stroke="#374151" stroke-width="1.2"/>
 
-  <g class="pill-1" transform="translate(890, 180)" filter="url(#softShadow)">
-    <rect width="210" height="42" rx="21" fill="url(#cardGrad)" stroke="#374151" stroke-width="1.2" />
-    <circle cx="24" cy="21" r="7" fill="#10b981" />
-    <text x="44" y="26" class="chip-text">🛡️ Stirling &amp; Bento Wasm</text>
-  </g>
+    <!-- Status Header Badge -->
+    <rect x="22" y="20" width="366" height="42" rx="8" fill="#18181b" stroke="#3f3f46" stroke-width="1.2"/>
+    <circle cx="44" cy="41" r="7" fill="#ef4444" class="pulse-dot"/>
+    <circle cx="44" cy="41" r="7" fill="none" stroke="#ef4444" stroke-width="2" class="pulse-ring"/>
+    <text x="64" y="46" font-size="13" font-weight="700" fill="#fca5a5" letter-spacing="0.5">COMPILER ACTIVE: TYPST &amp; REACT-PDF</text>
+    <text x="372" y="46" font-size="12" font-weight="700" fill="#10b981" text-anchor="end">READY</text>
 
-  <!-- Central Foreground Content (Title, Subtitle, Badges) -->
-  <g transform="translate(80, 0)">
-    <!-- Top Category Pill -->
-    <g transform="translate(0, 68)">
-      <rect width="260" height="32" rx="16" fill="#1e1b4b" stroke="#4f46e5" stroke-width="1.2" />
-      <text x="18" y="21" class="badge-label">✨ OPEN-SOURCE &amp; SAAS ECOSYSTEM</text>
+    <!-- Pipeline Stages -->
+    <g transform="translate(24, 80)">
+      <!-- Item 1: Declarative Layout -->
+      <text x="0" y="14" font-size="12.5" font-weight="600" fill="#e5e7eb">Typesetting &amp; Dynamic Layout Engine</text>
+      <text x="362" y="14" font-size="11.5" font-weight="600" fill="#10b981" text-anchor="end">Sub-second</text>
+      <g transform="translate(0, 22)" class="bar-pulse">
+        <rect x="0" y="0" width="45" height="6" rx="3" fill="#ef4444"/>
+        <rect x="52" y="0" width="70" height="6" rx="3" fill="#f97316"/>
+        <rect x="129" y="0" width="90" height="6" rx="3" fill="#8b5cf6"/>
+        <rect x="226" y="0" width="60" height="6" rx="3" fill="#3b82f6"/>
+        <rect x="293" y="0" width="69" height="6" rx="3" fill="#10b981"/>
+      </g>
     </g>
 
-    <!-- Main Title Lines -->
-    <g transform="translate(0, 145)">
-      <text x="0" y="0" class="title-main">Awesome PDF Editing &amp;</text>
-      <text x="0" y="54" class="title-accent">Generative Document Design</text>
+    <g transform="translate(24, 136)">
+      <!-- Item 2: Self-Hosted Sovereign Studio -->
+      <text x="0" y="14" font-size="12.5" font-weight="600" fill="#e5e7eb">Self-Hosted Browser Studio (Stirling &amp; Bento)</text>
+      <text x="362" y="14" font-size="11.5" font-weight="600" fill="#38bdf8" text-anchor="end">Wasm / Local</text>
+      <g transform="translate(0, 22)" class="bar-pulse">
+        <rect x="0" y="0" width="80" height="6" rx="3" fill="#3b82f6"/>
+        <rect x="87" y="0" width="110" height="6" rx="3" fill="#06b6d4"/>
+        <rect x="204" y="0" width="85" height="6" rx="3" fill="#10b981"/>
+        <rect x="296" y="0" width="66" height="6" rx="3" fill="#34d399"/>
+      </g>
     </g>
 
-    <!-- Subtitle Line -->
-    <text x="0" y="240" class="subtitle-text">
-      Declarative Layouts, Typesetting Compilers, React-to-PDF &amp; Sovereign Web PDF Studios
+    <g transform="translate(24, 192)">
+      <!-- Item 3: Headless Chromium API -->
+      <text x="0" y="14" font-size="12.5" font-weight="600" fill="#e5e7eb">Headless Chromium HTML-to-PDF (Gotenberg)</text>
+      <text x="362" y="14" font-size="11.5" font-weight="600" fill="#a855f7" text-anchor="end">Docker API</text>
+      <g transform="translate(0, 22)">
+        <rect x="0" y="0" width="120" height="6" rx="3" fill="#8b5cf6"/>
+        <rect x="127" y="0" width="140" height="6" rx="3" fill="#a855f7"/>
+        <rect x="274" y="0" width="88" height="6" rx="3" fill="#c084fc"/>
+      </g>
+    </g>
+
+    <!-- Bottom Metric Chip -->
+    <g transform="translate(24, 240)">
+      <rect width="362" height="28" rx="6" fill="#090d16" stroke="#1f2937"/>
+      <circle cx="14" cy="14" r="4" fill="#10b981"/>
+      <text x="26" y="18" font-size="11" fill="#9ca3af">Zero Cloud Leakage • Pixel-Perfect CSS Paged Media</text>
+    </g>
+  </g>
+
+  <!-- Left Foreground Typography & Identity -->
+  <g transform="translate(60, 54)">
+    <!-- Category Tag -->
+    <rect x="0" y="0" width="250" height="28" rx="14" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2" stroke-opacity="0.8"/>
+    <text x="16" y="18" font-size="11" font-weight="700" fill="#818cf8" letter-spacing="1.2">CURATED ECOSYSTEM 2026</text>
+
+    <!-- Main Title -->
+    <text x="0" y="74" font-size="42" font-weight="900" fill="#ffffff" letter-spacing="-0.8">
+      Awesome PDF Editing <tspan fill="url(#primary-glow)">&amp;</tspan>
+    </text>
+    <text x="0" y="124" font-size="42" font-weight="900" fill="url(#primary-glow)" letter-spacing="-0.8">
+      Generative Document Design
     </text>
 
-    <!-- Feature Tags Row -->
-    <g transform="translate(0, 285)">
-      <!-- Tag 1 -->
-      <g transform="translate(0, 0)">
-        <rect width="130" height="38" rx="8" fill="#1f2937" stroke="#374151" stroke-width="1" />
-        <text x="16" y="24" class="chip-text">📑 PDF Editors</text>
-      </g>
-      <!-- Tag 2 -->
-      <g transform="translate(142, 0)">
-        <rect width="180" height="38" rx="8" fill="#1f2937" stroke="#374151" stroke-width="1" />
-        <text x="16" y="24" class="chip-text">🦀 Typst &amp; Compilers</text>
-      </g>
-      <!-- Tag 3 -->
-      <g transform="translate(334, 0)">
-        <rect width="165" height="38" rx="8" fill="#1f2937" stroke="#374151" stroke-width="1" />
-        <text x="16" y="24" class="chip-text">🌐 HTML/CSS-to-PDF</text>
-      </g>
-      <!-- Tag 4 -->
-      <g transform="translate(511, 0)">
-        <rect width="155" height="38" rx="8" fill="#1f2937" stroke="#374151" stroke-width="1" />
-        <text x="16" y="24" class="chip-text">🔒 Privacy &amp; Wasm</text>
-      </g>
+    <!-- Subtitle / Value Proposition -->
+    <text x="0" y="168" font-size="16" font-weight="500" fill="#9ca3af">
+      Declarative Layouts, Typesetting Compilers, React-to-PDF &amp;
+    </text>
+    <text x="0" y="194" font-size="16" font-weight="500" fill="#9ca3af">
+      Privacy-First Self-Hosted Browser PDF Workspaces.
+    </text>
+
+    <!-- Feature Badges / Pills Row -->
+    <g transform="translate(0, 226)">
+      <rect x="0" y="0" width="136" height="30" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+      <text x="14" y="19" font-size="12" font-weight="600" fill="#e5e7eb">⚡ Typst &amp; LaTeX</text>
+
+      <rect x="148" y="0" width="144" height="30" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+      <text x="14" y="19" font-size="12" font-weight="600" fill="#e5e7eb">⚛️ React-PDF Engine</text>
+
+      <rect x="304" y="0" width="140" height="30" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+      <text x="14" y="19" font-size="12" font-weight="600" fill="#e5e7eb">🛡️ Sovereign Wasm</text>
+
+      <rect x="456" y="0" width="138" height="30" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+      <text x="14" y="19" font-size="12" font-weight="600" fill="#e5e7eb">🌐 HTML/CSS-to-PDF</text>
     </g>
   </g>
 </svg>
